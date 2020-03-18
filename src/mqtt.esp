@@ -64,8 +64,8 @@ void mqtt_publish_heartbeat(time_t heartbeat) {
 	const char *topic = mqttTopic;
 	DynamicJsonBuffer jsonBuffer;
 	JsonObject &root = jsonBuffer.createObject();
-	root["type"] = "heartbeat";
-	root["time"] = heartbeat;
+	root["device_feature_external_id"] = GLADYS_FEATURE_ID2;
+	root["state"] = heartbeat;
 	String mqttBuffer4;
 	root.printTo(mqttBuffer4);
 	mqttClient.publish(topic, 0, false, mqttBuffer4.c_str());
@@ -80,12 +80,8 @@ void mqtt_publish_access(time_t accesstime, String const &isknown, String const 
 		const char *topic = mqttTopic;
 		DynamicJsonBuffer jsonBuffer;
 		JsonObject &root = jsonBuffer.createObject();
-		root["type"] = "access";
-		root["time"] = accesstime;
-		root["isKnown"] = isknown;
-		root["access"] = type;
-		root["username"] = user;
-		root["uid"] = uid;
+	    root["device_feature_external_id"] = GLADYS_FEATURE_ID;
+		root["state"] = uid;
 		String mqttBuffer;
 		root.printTo(mqttBuffer);
 		mqttClient.publish(topic, 0, false, mqttBuffer.c_str());

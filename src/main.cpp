@@ -100,6 +100,8 @@ uint8_t wifipin = 255;
 uint8_t buttonPin = 255;
 #define LEDoff HIGH
 #define LEDon LOW
+#define GLADYS_FEATURE_ID "mqtt:1:rfid" // "mqtt:"" is mandatory
+#define GLADYS_FEATURE_ID2 "mqtt:2:rfid" // "mqtt:"" is mandatory
 
 // Variables for whole scope
 const char *http_username = "admin";

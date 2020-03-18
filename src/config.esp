@@ -187,6 +187,7 @@ bool ICACHE_FLASH_ATTR loadConfiguration()
 		mhs = strdup(mhsString.c_str());
 
 		mport = mqtt["port"];
+		#define GLADYS_FEATURE_ID "mqtt:1:volume" // "mqtt:"" is mandatory
 		
 		String muserString = mqtt["user"];
 		muser = strdup(muserString.c_str());
